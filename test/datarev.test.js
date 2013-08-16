@@ -45,7 +45,6 @@ describe('datarev', function() {
 
         person.name.first = "Chris"
         person.strength = 750
-
         personRev.rev(person)
 
         EQ (personRev.original.name.first, "JP")
@@ -59,7 +58,6 @@ describe('datarev', function() {
         EQ (Object.keys(personRev.revisions).length, 1)
 
         var rev1 = personRev.revisions[personRev.updatedAt]
-
         EQ (rev1.length, 2)
 
         EQ (rev1[0].p, ".name.first")
@@ -76,14 +74,21 @@ describe('datarev', function() {
         personRev.rev(person)
 
         var rev2 = personRev.revisions[personRev.updatedAt]
-
         EQ (rev2.length, 1)
 
         EQ (rev2[0].p, ".name.middle")
         EQ (rev2[0].val, "Jon")
         EQ (rev2[0].m, '+')  
 
-        
+        delete person.name.first
+        personRev.rev(person)
+
+        var rev3 = personRev.revisions[personRev.updatedAt]
+        EQ (rev3.length, 1)
+
+        EQ (rev3[0].p, ".name.first")
+        EQ (rev3[0].val, "Chris")
+        EQ (rev3[0].m, '-')  
 
       })
     })
