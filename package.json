@@ -1,11 +1,11 @@
 {
   "name": "datarev",
   "version": "0.0.1",
-  "description": "",
+  "description": "library that you can use to store data revisions or changes in an object.",
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jprichardson/datarev"
   },
   "keywords": [],
   "author": "JP Richardson <jprichardson@gmail.com>",
