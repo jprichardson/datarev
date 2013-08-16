@@ -71,6 +71,20 @@ describe('datarev', function() {
         EQ (rev1[1].old, 500)
         EQ (rev1[1].val, 750)
         EQ (rev1[1].m, 'R')
+
+        person.name.middle = "Jon"
+        personRev.rev(person)
+
+        var rev2 = personRev.revisions[personRev.updatedAt]
+
+        EQ (rev2.length, 1)
+
+        EQ (rev2[0].p, ".name.middle")
+        EQ (rev2[0].val, "Jon")
+        EQ (rev2[0].m, '+')  
+
+        
+
       })
     })
   })
